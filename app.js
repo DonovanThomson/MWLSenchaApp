@@ -5,17 +5,13 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    views: ['VulaMobiMainMenu','LoginView', 'VulaMobiActiveSites','VulaMobiAnnounceView','VulaMobiCourseAnnounce', 'AlbumCarouselPanel', 'AlbumViewPanel',
-        'ThumbnailPanel','VulaMobiCourseSite','VulaMobiCourseGrade','GradebookMainMenuView','WorkloadMainMenuView','FeedbackCentralView',
-        'GradebookGraphView','PieChart','MarksView','ResourceListItem','ResourceList','ResourceFeedbackView',
-        'FeedbackCentralView','MarkListItem','MarkList','FeedbackGoalView','FeedbackActiveSites','FeedbackGradesList','FeedbackGradeView','ForwardModelingView'],
+    views: ['VulaMobiMainMenu','LoginView'],
 
-    controllers:['LoginController','LogoutController', 'VulaMobiMainMenuController', 'Album', 'CameraController','VulaMobiCourseSiteController', 'FeedbackCentralController',
-        'GradebookGraphController', 'GradebookMainMenuController','ResourceFeedbackController','ResourceListController','MainMenuController','GoalController' ],
+    controllers:['LoginController','LogoutController', 'MainMenuController' ],
 
 
-    models: ['ActiveSites','Grades', 'Image','Mark','Resource','FeedbackSite', 'Announce'],
-    stores: ['ActiveSites','ModelingStore', 'Grades', 'Images','SampleStore','Marks','Understandings','FeedbackActiveSites', 'Announce','TempStore'],
+    models: [],
+    stores: [],
 
     icon: {
         '57': 'resources/icons/Icon.png',

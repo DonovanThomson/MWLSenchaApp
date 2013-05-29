@@ -23,14 +23,14 @@ Ext.define('VulaMobi.view.LoginView',{
         items:[
             {
               xtype:'titlebar',
-               title: 'VulaMobi',
+               title: 'Contacts App',
                 docked:'top'
 
 
             },
            {
             xtype   : 'panel',
-            html    : '<img width=100% src="resources/images/logo1.jpg" />'
+            html    : '<img width=50% src="resources/images/logo1.jpg" />'
 
             },
             {
@@ -40,12 +40,14 @@ Ext.define('VulaMobi.view.LoginView',{
                     {
                         xtype: 'textfield',
                         label: 'Username',
-                        name: 'username'
+                        name: 'username',
+                        text : 'Donovan.Thomson'
                     },
                     {
                         xtype:'passwordfield',
                         label: 'Password',
-                        name: 'password'
+                        name: 'password',
+                        text : 'Thom$on12'
                     }
                 ]
             },
