@@ -83,12 +83,14 @@ Ext.define('VulaMobi.controller.LoginController', {
 
             success: function(response){
                 //   Ext.Msg.alert(response.responseXML);
-                console.log(response.responseText);
 
+                console.log(response.responseText);
+                Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
+                Ext.Viewport.add(Ext.create('VulaMobi.view.MainMenu'));
 
             },
             failure: function(response){
-                Ext.Msg.alert('b');
+                Ext.Msg.alert('Details are incorrect');
                 //  console.log('Success response: ' + response.responseText);
 
 

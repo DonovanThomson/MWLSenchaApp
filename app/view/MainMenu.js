@@ -1,4 +1,11 @@
-Ext.define('VulaMobi.view.VulaMobiMainMenu',{
+/**
+ * Created with JetBrains WebStorm.
+ * User: donovan
+ * Date: 2013/05/30
+ * Time: 4:26 PM
+ * To change this template use File | Settings | File Templates.
+ */
+Ext.define('VulaMobi.view.MainMenu',{
     extend: 'Ext.Panel',
 
 
@@ -13,7 +20,7 @@ Ext.define('VulaMobi.view.VulaMobiMainMenu',{
             {
                 xtype: "toolbar",
                 docked: "top",
-                title: 'VulaMobi',
+                title: 'MWL',
                 items: [
 
                     { xtype: "spacer" },
@@ -28,38 +35,39 @@ Ext.define('VulaMobi.view.VulaMobiMainMenu',{
 
             {
                 xtype:'panel',
-                html: '<h1><b><center>VulaMobi Home</center></b></h1>'
+                html: '<h2><b><center>MWL Contact Home</center></b></h2>'
 
             },
 
 
-            { xtype: "spacer" ,    height: 30 },
+            { xtype: "spacer" ,    height: 50 },
             {
                 xtype: 'button',
                 ui:'confirm',
-                text:'Gallery',
-                action:'goGallery'
+                text:'Search For Contact',
+                handler:function(button){
+
+                    Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
+                    Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.SearchView'));
+                }
 
             },
 
-            { xtype: "spacer" ,    height: 30 },
+            { xtype: "spacer" ,    height: 50 },
             {
                 xtype: 'button',
                 ui:'confirm',
-                text:'Feedback',
-                action:'goFeedback'
+                text:'Recent Contacts',
+
+                handler:function(button){
+
+                    Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
+                    Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.VulaMobiCourseAnnounce'));
+                }
 
             }
             ,
 
-            { xtype: "spacer" ,    height: 30 },
-            {
-                xtype: 'button',
-                ui:'confirm',
-                text:'Courses',
-                action:'goActiveSites'
-
-            },
             {
                 xtype:'tabbar',
                 docked:'bottom',
@@ -69,7 +77,7 @@ Ext.define('VulaMobi.view.VulaMobiMainMenu',{
                     iconMask:true,
                     //align: 'center',
                     text: 'Home',
-                     disabled:true
+                    disabled:true
 
                 }]
             }

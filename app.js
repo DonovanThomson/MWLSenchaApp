@@ -5,7 +5,7 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    views: ['VulaMobiMainMenu','LoginView'],
+    views: ['LoginView','MainMenu'],
 
     controllers:['LoginController','LogoutController', 'MainMenuController' ],
 
