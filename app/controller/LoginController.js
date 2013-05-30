@@ -72,13 +72,12 @@ Ext.define('VulaMobi.controller.LoginController', {
 
     submitLoginForm: function(){
         var form = this.getLoginForm().getValues();
-        localStorage.setItem('Username',form.username)
-        localStorage.setItem('Password',form.password)
+        localStorage.setItem('Token', 'Basic '+ base64_encode(form.username+':'+form.password))
         Ext.Ajax.request({
             url:'https://bsg.myworklife.com/app/api/rest//contact/Devlin',
             method:'GET',
             headers: {
-                Authorization: 'Basic '+ base64_encode(form.username+':'+form.password)
+                Authorization: localStorage.getItem('Token')
             },
 
             success: function(response){
