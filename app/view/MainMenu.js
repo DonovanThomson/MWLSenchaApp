@@ -28,7 +28,13 @@ Ext.define('VulaMobi.view.MainMenu',{
                         xtype: "button",
                         ui: "confirm",
                         text: "LOG OUT",
-                        action: "logout"
+                        handler:function(button){
+                            localStorage.clear();
+                            Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
+                            Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.LoginView'));
+                        }
+
+
                     }
                 ]
             },

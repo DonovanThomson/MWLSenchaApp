@@ -5,13 +5,13 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    views: ['LoginView','MainMenu','SearchView'],
+    views: ['LoginView','MainMenu','SearchView','SearchResultsView'],
 
     controllers:['LoginController','LogoutController', 'MainMenuController','SearchController' ],
 
 
     models: ['ContactModel'],
-    stores: ['ContactsStore'],
+    stores: ['ContactsStore','TempStore'],
 
     icon: {
         '57': 'resources/icons/Icon.png',

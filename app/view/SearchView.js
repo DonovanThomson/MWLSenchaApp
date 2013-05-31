@@ -1,11 +1,13 @@
 
 Ext.define('VulaMobi.view.SearchView', {
-    extend: 'Ext.Panel',
-    id:'searchForm',
+    extend: 'Ext.form.Panel',
+
     xtype:'vulamobi-searchview',
     // We are using Ext.Ajax, so we should require it
     requires: ['Ext.Ajax'],
+    id:'searchForm',
     config: {
+
         styleHtmlContent: 'true',
         scrollable: true,
         items:[{

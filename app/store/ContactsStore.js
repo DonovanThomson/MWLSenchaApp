@@ -12,19 +12,16 @@ Ext.define('VulaMobi.store.ContactsStore',{
     requires: ['VulaMobi.model.ContactModel','Ext.data.proxy.LocalStorage'],
 
     config: {
+        id  : 'ContactsStore',
         storeId: 'ContactsStore',
         model: 'VulaMobi.model.ContactModel',
+        type: 'localstorage',
 
         proxy: {
-            id  : 'ContactsStore',
-            url:'https://bsg.myworklife.com/app/api/rest//contact/'+ localStorage.getItem('SearchedName'),
-            headers: {
-                Authorization: localStorage.getItem('Token')
-            },
-            reader: {
-                type: 'xml',
-                rootProperty: 'Contacts'
-            }
+
+            type: 'localstorage',
+            id  : 'TheContactsStore'
+
         }
     }
 });

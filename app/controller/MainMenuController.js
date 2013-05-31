@@ -2,9 +2,11 @@ Ext.define('VulaMobi.controller.MainMenuController', {
     extend: 'Ext.app.Controller',
     config:{
         refs:{
-            ref:'loginForm',
+        /**    ref:'loginForm',
+            ref:'searchForm',
+            searchForm :'#searchForm',
             loginForm:'#loginForm',
-            selector: '#loginForm'
+            selector: '#loginForm'   **/
         }
     },
     init: function(){
