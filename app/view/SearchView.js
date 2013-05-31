@@ -47,7 +47,7 @@ Ext.define('VulaMobi.view.SearchView', {
                     {
                         xtype: 'textfield',
                         label: 'Name',
-                        name: 'SearchedName'
+                        name: 'searchedName'
 
                     }
 

@@ -77,7 +77,7 @@ Ext.define('VulaMobi.view.SearchResultsView',{
 
                         handler:function(button){
                             Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
-                            Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.SearhView'));
+                            Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.SearchView'));
                         }
                     }
 

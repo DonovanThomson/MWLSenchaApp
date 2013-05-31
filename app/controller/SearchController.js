@@ -27,6 +27,7 @@ Ext.define('VulaMobi.controller.SearchController', {
         //populates the active sites store with the users active sites
 
        localStorage.setItem('SearchedName',  form.searchedName);
+
         var ContactsStore = Ext.create("VulaMobi.store.ContactsStore");
        // ContactsStore.sync();
         Ext.Ajax.request({
