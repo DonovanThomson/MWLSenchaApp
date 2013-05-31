@@ -5,27 +5,27 @@
  * Time: 5:15 PM
  * To change this template use File | Settings | File Templates.
  */
-Ext.define('VulaMobi.store.ContactStore',{
+Ext.define('VulaMobi.store.ContactsStore',{
 
     extend: 'Ext.data.Store',
 
-    requires: ['VulaMobi.model.ActiveSites','Ext.data.proxy.LocalStorage'],
+    requires: ['VulaMobi.model.ContactModel','Ext.data.proxy.LocalStorage'],
 
     config: {
         storeId: 'ContactsStore',
         model: 'VulaMobi.model.ContactModel',
 
         proxy: {
-            type: 'localstorage',
-            id  : 'TheSitesStore',
+            id  : 'ContactsStore',
             url:'https://bsg.myworklife.com/app/api/rest//contact/'+ localStorage.getItem('SearchedName'),
             headers: {
                 Authorization: localStorage.getItem('Token')
             },
             reader: {
                 type: 'xml',
-                rootProperty: 'Contact'
+                rootProperty: 'Contacts'
             }
         }
     }
 });
+
