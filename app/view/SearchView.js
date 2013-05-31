@@ -1,11 +1,10 @@
 
 Ext.define('VulaMobi.view.SearchView', {
-
     extend: 'Ext.Panel',
-
+    id:'searchForm',
+    xtype:'vulamobi-searchview',
     // We are using Ext.Ajax, so we should require it
     requires: ['Ext.Ajax'],
-
     config: {
         styleHtmlContent: 'true',
         scrollable: true,
@@ -38,6 +37,27 @@ Ext.define('VulaMobi.view.SearchView', {
 
             ]
         },
+            { xtype: "spacer" ,    height: 50 },
+            {
+                xtype: 'fieldset',
+                title: 'Search For Contact',
+                items:[
+                    {
+                        xtype: 'textfield',
+                        label: 'Name',
+                        name: 'SearchedName'
+
+                    }
+
+                ]
+            },
+            {
+                xtype: 'button',
+                ui:'confirm',
+                text:'Search',
+                action:'submitSearch'
+                //  id:'loginButton'
+            },
             {
                 xtype:'tabbar',
                 docked:'bottom',
@@ -48,8 +68,9 @@ Ext.define('VulaMobi.view.SearchView', {
                     text: 'Home',
 
                     handler:function(button){
+
                         Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
-                        Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.VulaMobiMainMenu'));
+                        Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.MainMenu'));
                     }
 
 
@@ -57,47 +78,15 @@ Ext.define('VulaMobi.view.SearchView', {
             }
 
 
-        ],
+        ]
 
 
-        listeners: {
-            activate: 'onActivate'
-
-        }
 
 
-    },
-
-    onActivate: function(me, container)
-    {
-        var address ='http://people.cs.uct.ac.za/~swatermeyer/VulaMobi/ajax.php?announce/body/'
-            +localStorage.getItem("siteID")+'/'+localStorage.getItem("announceID");
-        Ext.Viewport.mask({xtype:'loadmask'});
-        Ext.Ajax.request({
-
-            url: address,
-            method:'POST',
-            disableCaching:true,
-            withCredentials: true,
-            useDefaultXhrHeader: false,
-            params:
-            {
-                username:localStorage.getItem("username"),
-                password:localStorage.getItem("password")
-            },
-
-            success: function(response, request) {
-                //We should use the setter for the HTML config for this
-                Ext.Viewport.unmask();
-                me.setHtml(response.responseText);
-                //alert(localStorage.getItem("siteTitle"))   ;
-            },
-            failure: function(response, request) {
-                me.setHtml("failed -- response: " + response.responseText);
-            }
-        });
 
     }
+
+
 
 
 

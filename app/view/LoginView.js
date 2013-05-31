@@ -41,13 +41,13 @@ Ext.define('VulaMobi.view.LoginView',{
                         xtype: 'textfield',
                         label: 'Username',
                         name: 'username',
-                        text : 'Donovan.Thomson'
+                        value : 'Donovan.Thomson'
                     },
                     {
                         xtype:'passwordfield',
                         label: 'Password',
                         name: 'password',
-                        text : 'Thom$on12'
+                        value : 'Thom$on12'
                     }
                 ]
             },
