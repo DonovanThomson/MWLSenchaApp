@@ -17,7 +17,8 @@ Ext.define('VulaMobi.model.ContactModel', {
             {name: 'cellnum', type:'string'},
             {name: 'homenum', type:'string'},
             {name: 'skype', type:'string'},
-            {name: 'msn', type:'string'}
+            {name: 'msn', type:'string'},
+            {name: 'email', type:'string'}
         ]
 
     }

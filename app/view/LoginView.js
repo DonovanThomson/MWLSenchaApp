@@ -30,7 +30,7 @@ Ext.define('VulaMobi.view.LoginView',{
             },
            {
             xtype   : 'panel',
-            html    : '<img width=50% src="resources/images/logo1.jpg" />'
+            html    : '<img width=100% src="resources/images/logo1.jpg" />'
 
             },
             {

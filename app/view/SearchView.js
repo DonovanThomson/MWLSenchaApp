@@ -27,12 +27,12 @@ Ext.define('VulaMobi.view.SearchView', {
                     xtype: "button",
                     ui: "back",
                     align:'left',
-                    text: "AnnounceList",
+                    text: "Back",
 
                     handler:function(button){
 
                         Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
-                        Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.VulaMobiCourseAnnounce'));
+                        Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.MainMenu'));
                     }
                 }
 

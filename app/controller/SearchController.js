@@ -40,18 +40,59 @@ Ext.define('VulaMobi.controller.SearchController', {
             success: function(response){
                 //   Ext.Msg.alert(response.responseXML);
                 var xml = response.responseXML;
+                console.log(xml);
                 var Contacts = xml.getElementsByTagName('Contacts');
 
                 for(var i = 0; i < Contacts[0].childNodes.length; i++)
                 {
                    var displayName = Contacts[0].childNodes[i].attributes['displayName'].value;
                    var cellnumber = Contacts[0].childNodes[i].attributes['cellNumber'].value;
-              //     var extensionNumber = Contacts[0].childNodes[i].attributes['extensionNumber'].value;
-                 //  var homeNumber = Contacts[0].childNodes[i].attributes['homeNumber'].value;
-                //   var workNumber = Contacts[0].childNodes[i].attributes['workNumber'].value;
-                //   var skypename = Contacts[0].childNodes[i].attributes['skype'].value;
-                //   var MSN = Contacts[0].childNodes[i].attributes['msn'].value;
-                    ContactsStore.add({name : displayName,cellnum: cellnumber });
+                    var extensionNumber;
+                    var homeNumber;
+                    var skypename;
+                    var MSN ;
+                   //extension
+                    var node = Contacts[0].childNodes[i].attributes['extensionNumber'];
+
+                    if (node != null)
+                        extensionNumber = Contacts[0].childNodes[i].attributes['extensionNumber'].value;
+                        else
+                        extensionNumber = 'N/A';
+
+                    //home number
+                    var node1 = Contacts[0].childNodes[i].attributes['homeNumber'];
+
+                    if (node1 != null)
+                        homeNumber = Contacts[0].childNodes[i].attributes['homeNumber'].value;
+                    else
+                        homeNumber = 'N/A';
+
+                    //skype
+                    var node2 = Contacts[0].childNodes[i].attributes['skypename'];
+
+                    if (node2 != null)
+                        skypename = Contacts[0].childNodes[i].attributes['skypename'].value;
+                    else
+                        skypename = 'N/A';
+
+                    //msn
+                    var node3 = Contacts[0].childNodes[i].attributes['msn'];
+
+                    if (node3 != null)
+                        MSN = Contacts[0].childNodes[i].attributes['msn'].value;
+                    else
+                        MSN = 'N/A';
+
+                    //email
+                    var email;
+                    var node4 = Contacts[0].childNodes[i].attributes['email'];
+                    if (node4 != null)
+                        email = Contacts[0].childNodes[i].attributes['email'].value;
+                    else
+                        email = 'N/A';
+
+
+                    ContactsStore.add({name : displayName,cellnum: cellnumber, bsgextension :extensionNumber, homenum : homeNumber, skype : skypename, msn : MSN , email : email });
                     ContactsStore.sync();
                     console.log(displayName + "Added") ;
                     console.log(ContactsStore);

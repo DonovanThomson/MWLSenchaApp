@@ -89,7 +89,7 @@ Ext.define('VulaMobi.controller.LoginController', {
 
             },
             failure: function(response){
-                Ext.Msg.alert('Details are incorrect');
+                Ext.Msg.alert(response.responseText);
                 //  console.log('Success response: ' + response.responseText);
 
 

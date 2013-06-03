@@ -15,7 +15,7 @@ Ext.define('VulaMobi.view.ContactView',{
             {
                 xtype: "titlebar",
                 docked: "top",
-                title: "grades",
+                title: "Employee Details" ,
                 items: [
                     {	iconCls: 'home',
                         iconMask: true,
@@ -30,7 +30,7 @@ Ext.define('VulaMobi.view.ContactView',{
                         xtype: "button",
                         ui: "back",
                         align:'left',
-                        text: "Grades",
+                        text: "Back",
 
                         handler:function(button){
                             Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
@@ -54,7 +54,12 @@ Ext.define('VulaMobi.view.ContactView',{
         itemTpl://'{name}' +'        '+ '{mark}'+'       ' +'{date}'
             ['<div>',
                 '<h1><b>Name : {name}</b></h1>',
-                '<h1>cellphone number: : {cellnum}</h1>',
+                '<h1>Cellphone Number: : {cellnum}</h1>',
+                '<h1>Extension Number : {bsgextension}</h1>',
+                '<h1>Home Number : {homenum}</h1>',
+                '<h1>Skype Name : {skype}</h1>',
+                '<h1>MSN : {msn}</h1>',
+                '<h1>Email : {email}</h1>',
                 '</div>']
 
 
