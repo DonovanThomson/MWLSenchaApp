@@ -29,6 +29,7 @@ Ext.define('VulaMobi.view.MainMenu',{
                         ui: "confirm",
                         text: "LOG OUT",
                         handler:function(button){
+                            localStorage.setItem('Token','')
                             localStorage.clear();
                             Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
                             Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.LoginView'));
@@ -68,7 +69,7 @@ Ext.define('VulaMobi.view.MainMenu',{
                 handler:function(button){
 
                     Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
-                    Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.VulaMobiCourseAnnounce'));
+                    Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.RecentContactsView'));
                 }
 
             }

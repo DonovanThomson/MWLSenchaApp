@@ -1,6 +1,6 @@
 
 
-Ext.define('VulaMobi.view.ContactView',{
+Ext.define('VulaMobi.view.RecentContactView',{
     extend:	'Ext.dataview.List',
 
     deselectOnContainerClick: 'false',
@@ -34,7 +34,7 @@ Ext.define('VulaMobi.view.ContactView',{
 
                         handler:function(button){
                             Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
-                            Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.SearchResultsView'));
+                            Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.RecentContactsView'));
                         }
                     }
 
@@ -50,11 +50,11 @@ Ext.define('VulaMobi.view.ContactView',{
         disableSelection: true,
         //styleHtmlContent:true,
         title: 'Contact Details',
-        store : 'TempStore',
+        store : 'RecentTempStore',
         itemTpl://'{name}' +'        '+ '{mark}'+'       ' +'{date}'
             [
                 '<h1><b><text-align:center>{name}</b></h1>',
-                '<h4>Cellphone Number</h4>',
+                '<h4><span class="label">Cellphone Number</span></h4>',
                 '<div class="field">{cellnum}</div>',
                 '<h4>Extension Number</h4>',
                 '<div class="field">{bsgextension}</div>',

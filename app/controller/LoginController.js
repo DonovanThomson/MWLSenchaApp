@@ -71,25 +71,31 @@ Ext.define('VulaMobi.controller.LoginController', {
     },
 
     submitLoginForm: function(){
+        window.localStorage.removeItem('Token');
+
         var form = this.getLoginForm().getValues();
-        localStorage.setItem('Token', 'Basic '+ base64_encode(form.username+':'+form.password))
+        var username = form.username;
+        var password = form.password;
+        localStorage.setItem('Token', 'Basic '+ base64_encode(username+':'+password))
+        var OtherSitesStore = Ext.create("VulaMobi.store.RecentlySearchedStore");
         Ext.Ajax.request({
             url:'https://bsg.myworklife.com/app/api/rest//contact/Devlin',
             method:'GET',
             headers: {
-                Authorization: localStorage.getItem('Token')
+                Authorization: 'Basic '+ base64_encode(username+':'+password)
             },
 
             success: function(response){
                 //   Ext.Msg.alert(response.responseXML);
-
+                var ContactsStore = Ext.create("VulaMobi.store.RecentlySearchedStore");
+                var ContactsStore = Ext.create("VulaMobi.store.RecentTempStore");
                 console.log(response.responseText);
                 Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
                 Ext.Viewport.add(Ext.create('VulaMobi.view.MainMenu'));
 
             },
             failure: function(response){
-                Ext.Msg.alert(response.responseText);
+                Ext.Msg.alert('Details Incorrect');
                 //  console.log('Success response: ' + response.responseText);
 
 

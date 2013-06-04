@@ -13,14 +13,20 @@ Ext.define('VulaMobi.view.SearchView', {
         items:[{
             xtype: "titlebar",
             docked: "top",
-            title: "VulaMobi",
+            title: "MWL",
             items: [
                 {
                     xtype: "button",
                     ui: "confirm",
                     align:'right',
                     text: "LOG OUT",
-                    action: "logout"
+
+                    handler:function(button){
+                        localStorage.setItem('Token','')
+                        localStorage.clear();
+                        Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
+                        Ext.Viewport.setActiveItem(Ext.create('VulaMobi.view.LoginView'));
+                    }
                 },
 
                 {

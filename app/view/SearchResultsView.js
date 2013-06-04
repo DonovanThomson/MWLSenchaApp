@@ -1,47 +1,3 @@
-/**
- * Created with JetBrains WebStorm.
- * User: donovan
- * Date: 2013/05/30
- * Time: 4:47 PM
- * To change this template use File | Settings | File Templates.
- */
-/**Ext.define('VulaMobi.view.SearchResultsView',{
-    extend:	'Ext.dataview.NestedList',
-
-    xtype:'searchResultsView',
-    id:'MarksForm',
-
-    config:{
-        title: 'Contacts',
-        store : 'ContactsStore',
-        //   itemTpl: 'Test Name :"{name}"',
-        itemTpl: '"{name}" | "{cellnum}"'
-    }
-});
-
-Ext.define('VulaMobi.view.SearchResultsView', {
-    extend: 'Ext.dataview.NestedList',
-    xtype: 'searchResultsView',
-    //id: 'mainlist',
-
-
-
-    config: {
-        title: 'Found Contacts',
-        useTitleAsBackText: false,
-        onItemDisclosure: true,
-        store: 'ContactsStore',
-
-        zIndex: 0
-    },
-
-    getTitleTextTpl: function() {
-        return '<div>{name}</div>';
-    },
-    getItemTextTpl: function(node) {
-        return '<div><strong>{name}:</strong> <em>{cellnum}</em></div>';
-    }
-});    **/
 
 Ext.define('VulaMobi.view.SearchResultsView',{
     extend:	'Ext.dataview.List',
@@ -58,7 +14,7 @@ Ext.define('VulaMobi.view.SearchResultsView',{
             {
                 xtype: "titlebar",
                 docked: "top",
-                title: "Grade Book",
+                title: "Employee's",
                 items: [
                     {	iconCls: 'home',
                         iconMask: true,
@@ -105,6 +61,11 @@ Ext.define('VulaMobi.view.SearchResultsView',{
                 SelectedSiteStore.removeAll();
                 SelectedSiteStore.add(mytxt);
                 SelectedSiteStore.sync();
+
+
+                var recentlySearched = Ext.data.StoreManager.lookup('RecentlySearchedStore')  ;
+                recentlySearched.add(mytxt);
+                recentlySearched.sync();
                 Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
                 Ext.Viewport.add(Ext.create('VulaMobi.view.ContactView'));
 

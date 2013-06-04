@@ -18,7 +18,6 @@ Ext.define('VulaMobi.controller.LogoutController', {
 
             success: function(response){
 
-
                 if(response.responseText == 'logged_out')
                 {
                     // return 'empty';

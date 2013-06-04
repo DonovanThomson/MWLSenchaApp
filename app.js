@@ -5,7 +5,7 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    views: ['LoginView','MainMenu','SearchView','SearchResultsView'],
+    views: ['LoginView','MainMenu','SearchView','SearchResultsView','NewEmployeeView'],
 
     controllers:['LoginController','LogoutController', 'MainMenuController','SearchController' ],
 

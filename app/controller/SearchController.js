@@ -29,6 +29,7 @@ Ext.define('VulaMobi.controller.SearchController', {
        localStorage.setItem('SearchedName',  form.searchedName);
 
         var ContactsStore = Ext.create("VulaMobi.store.ContactsStore");
+
        // ContactsStore.sync();
         Ext.Ajax.request({
             url:'https://bsg.myworklife.com/app/api/rest//contact/'+localStorage.getItem('SearchedName'),
@@ -54,42 +55,52 @@ Ext.define('VulaMobi.controller.SearchController', {
                    //extension
                     var node = Contacts[0].childNodes[i].attributes['extensionNumber'];
 
-                    if (node != null)
-                        extensionNumber = Contacts[0].childNodes[i].attributes['extensionNumber'].value;
-                        else
+                    if (node == null)
                         extensionNumber = 'N/A';
+                        else if (Contacts[0].childNodes[i].attributes['extensionNumber'].value == '')
+                        extensionNumber = 'N/A';
+                        else   extensionNumber = Contacts[0].childNodes[i].attributes['extensionNumber'].value ;
+
+
+
 
                     //home number
                     var node1 = Contacts[0].childNodes[i].attributes['homeNumber'];
-
-                    if (node1 != null)
-                        homeNumber = Contacts[0].childNodes[i].attributes['homeNumber'].value;
-                    else
+                    if (node1 == null)
                         homeNumber = 'N/A';
+                    else if (Contacts[0].childNodes[i].attributes['homeNumber'].value == '')
+                        homeNumber = 'N/A';
+                    else   homeNumber = Contacts[0].childNodes[i].attributes['homeNumber'].value ;
+
 
                     //skype
                     var node2 = Contacts[0].childNodes[i].attributes['skypename'];
-
-                    if (node2 != null)
-                        skypename = Contacts[0].childNodes[i].attributes['skypename'].value;
-                    else
+                    if (node2 == null)
                         skypename = 'N/A';
+                    else if (Contacts[0].childNodes[i].attributes['skypename'].value == '')
+                        skypename = 'N/A';
+                    else   skypename = Contacts[0].childNodes[i].attributes['skypename'].value ;
+
+
 
                     //msn
                     var node3 = Contacts[0].childNodes[i].attributes['msn'];
-
-                    if (node3 != null)
-                        MSN = Contacts[0].childNodes[i].attributes['msn'].value;
-                    else
+                    if (node3 == null)
                         MSN = 'N/A';
+                    else if (Contacts[0].childNodes[i].attributes['msn'].value == '')
+                        MSN = 'N/A';
+                    else   MSN = Contacts[0].childNodes[i].attributes['msn'].value ;
+
 
                     //email
                     var email;
                     var node4 = Contacts[0].childNodes[i].attributes['email'];
-                    if (node4 != null)
-                        email = Contacts[0].childNodes[i].attributes['email'].value;
-                    else
+
+                    if (node4 == null)
                         email = 'N/A';
+                    else if (Contacts[0].childNodes[i].attributes['email'].value == '')
+                        email = 'N/A';
+                    else   email = Contacts[0].childNodes[i].attributes['email'].value ;
 
 
                     ContactsStore.add({name : displayName,cellnum: cellnumber, bsgextension :extensionNumber, homenum : homeNumber, skype : skypename, msn : MSN , email : email });
